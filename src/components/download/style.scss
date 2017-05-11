@@ -1,0 +1,64 @@
+.download-wrapper {
+  width: 100%;
+  height: 60px;
+  color: #fff;
+  background-color: #f9c609;
+  padding: 10px;
+  position: relative;
+  .inline-block {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .desc-download {
+    margin-top: 2px;
+  }
+  .icon-close-explore {
+    width: 10px;
+  }
+  .img-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin: 0 10px 0 5px;
+  }
+  .desc-download {
+    .download-title {
+      color: #333;
+      font-size: 14px;
+      margin-bottom: 9px;
+    }
+    .download-intro {
+      color: #333;
+      font-size: 14px;
+    }
+  }
+  .btn-block {
+    float: right;
+    line-height: 42px;
+    .btn-common {
+      width: 40px;
+      height: 26.5px;
+    }
+    .btn-download {
+      margin-right: 10px;
+      background: url(../../assets/images/click-l.png) center no-repeat;
+      background-size: contain;
+    }
+    .btn-close {
+      margin-right: 5px;
+      background: url(../../assets/images/close-l.png) center no-repeat;
+      background-size: contain;
+    }
+  }
+}
+@media screen and (min-width: 375px){
+  .download-wrapper {
+    .btn-block {
+      .btn-common {
+        width: 50px;
+        height: 33px;
+      }
+    }
+  }
+}
+

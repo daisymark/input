@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="csrf-token">
+  <meta name="keywords" content="快乐购票" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="stylesheet" href="https://wx.wepiao.com/css/style.css?v=179cc58" />
+  <script src="https://open.mobile.qq.com/sdk/qqapi.js?_bid=152" type="text/javascript"></script>
+
+  <title>
+    <!--sTitle-->
+  </title>
+  
+  {% if (o.htmlWebpackPlugin.files.favicon) { %}
+  <link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}"> {% } %} {% for (var css in o.htmlWebpackPlugin.files.css) { %}
+  <link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet"> {% } %} {% if(o.chunkManifest) { %}
+  <script>
+  {%#o.chunkManifest%};
+  </script>
+  {% } %}
+  <title>{%=o.htmlWebpackPlugin.options.title || '微票儿 - 微信电影票'%}</title>
+</head>
+
+<body>
+  <div id="article_main" style="display:none">
+    <div class="article-wrapper">
+      <div class="author-box">
+        <image src="<!--sSource_head-->">
+        <div class="con">
+          <p class="author"><!--sSource_name--></p>
+          <p class="desc"><!--sSource_summary--></p>
+        </div>
+        <div class="follow-author"><i class="icon-qr"></i><p class="follow-con">关注公众号</p></div>
+      </div>
+      <div class="content-box">
+        <h2 class="article-title"><!--sTitle--></h2>
+        <p class="reads-text"><i class="icon-font icon-eye"></i><span class="reads-amount"></span>人阅读</p>
+        <div>
+          <!--content-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hide" style="width:100%;margin-top:100px;">
+    <div class="img" style="width:20px;margin:0 auto">
+      <img style="width:20px" src="https://appnfs.wepiao.com/uploads/active/20160831/17/1472636711542097.gif">
+    </div>
+  </div>
+  <div id="app">
+  </div>
+
+  <input type="hidden"
+    id="configure"
+    data-sShareLogo="<!--sShare_logo-->"
+    data-sShareTitle="<!--sShare_title-->"
+    data-sShareSummary="<!--sShare_summary-->"
+    data-activeId="<!--activeId-->"
+    data-shareData="<!--shareData-->"
+    data-sCover="<!--sCover-->"
+    data-iCopyright="<!--iCopyright-->"
+    data-movieDetail="<!--movieDetail-->"
+    data-sTitle="<!--sTitle-->"
+    data-qr="<!--sSource_qr-->"
+    data-author="<!--sSource_name-->"
+    data-summary="<!--sSource_summary-->"
+  />
+
+
+  <script src="//res.wxmovie.com/js/he-cd1020a43e.js"></script>
+  <script>
+    function isWx(){
+      return navigator.userAgent.indexOf('MicroMessenger') > -1 ? true : false;
+    }
+
+    function isQQ(){
+      var b = navigator.userAgent,
+          a = /(iPad|iPhone|iPod).*? QQ\/([\d\.]+)/,
+          c = /\bV1_AND_SQI?_([\d\.]+)(.*? QQ\/([\d\.]+))?/;
+      if (!a.test(b) && !c.test(b)) {
+        return false
+      }
+      return true
+    }
+
+    function isiOS(){
+      return navigator.userAgent.toLowerCase().indexOf('iphone') > -1 ||
+        navigator.userAgent.toLowerCase().indexOf('ipad') > -1 ? true : false;
+    }
+
+    function isAndroid(){
+      return navigator.userAgent.toLowerCase().indexOf('android') > -1 ? true : false;
+    }
+    window.onload = function(){
+      var channelId = document.getElementById('configure').getAttribute('data-channelId')
+      window.__VERSION_FOR_HE__ = '1.0.0'
+      if ( isWx() ) {//微信渠道
+        he('create', 'wemovie')
+      }else if ( isQQ() ) {//微票手Q渠道
+        he('create', 'qqmovie')
+      }else if ( isiOS() ) {//微票ios渠道
+        he('create', 'iosmovie')
+      }else if ( isAndroid() ) {//微票android渠道
+        he('create', 'androidmovie')
+      }
+      he('send', 'pageview', 'explore_detail')
+    }
+  </script>
+  {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+  <script type="text/javascript" src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry%}"></script>
+  {% } %}
+</body>
+
+</html>

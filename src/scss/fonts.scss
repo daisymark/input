@@ -1,0 +1,93 @@
+$icomoon-font-path: "fonts" !default;
+
+$icon-qr: "\e906";
+$icon-eye: "\e901";
+$icon-movie: "\e905";
+$icon-comment: "\e900";
+$icon-share: "\e902";
+$icon-liked: "\e903";
+$icon-like: "\e904";
+$icon-close-explore: "\e62d";
+$icon-clock: "\e94e";
+
+@font-face {
+  font-family: 'icon-font';
+  src:  url('#{$icomoon-font-path}/icon-font.eot');
+  src:  url('#{$icomoon-font-path}/icon-font.eot') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/icon-font.ttf') format('truetype'),
+    url('#{$icomoon-font-path}/icon-font.woff') format('woff'),
+    url('#{$icomoon-font-path}/icon-font.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i, .icomoon-liga {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icon-font' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-qr {
+  &:before {
+    content: $icon-qr;
+  }
+}
+.icon-eye {
+  &:before {
+    content: $icon-eye;
+  }
+}
+.icon-movie {
+  &:before {
+    content: $icon-movie;
+  }
+}
+.icon-comment {
+  &:before {
+    content: $icon-comment;
+  }
+}
+.icon-share {
+  &:before {
+    content: $icon-share;
+  }
+}
+.icon-liked {
+  &:before {
+    content: $icon-liked;
+  }
+}
+.icon-like {
+  &:before {
+    content: $icon-like;
+  }
+}
+.icon-close-explore {
+  &:before {
+    content: $icon-close-explore;
+  }
+}
+.icon-clock {
+  &:before {
+    content: $icon-clock;
+  }
+}
